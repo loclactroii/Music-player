@@ -1,0 +1,370 @@
+:root {
+    --primary-color: rgba(255, 43, 120, 0.8);
+    --dash-broad-color: rgb(255, 170, 230);
+    --text-color: rgba(157, 153, 197, 0.7);
+    --app-width: 480px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(-45deg,rgb(0, 247, 185),rgb(19, 148, 253),rgb(1, 46, 246),rgb(0, 8, 253));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-size: 400% 400%;
+    /* animation: gradient 12s ease infinite; */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.app {
+    width: 100%;
+    width: var(--app-width);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 16px #999;
+    background: linear-gradient(-90deg,rgb(183 190 196), rgb(223 227 230) ) center;
+    z-index: 20;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+::selection {
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+/* ----------Dashboard---------- */
+.dashboard {
+    /* height: 300px; */
+    /* height: 530px; */
+    width: var(--app-width);
+    padding: 30px 30px 20px 30px;
+    position: fixed;
+    background-color: #fff;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-position: center;
+    background-size: cover;
+    z-index: 9999;
+    transition: 0.8s;
+    background-image: url('./assets/images/customimg/SL_042620_30310_19.jpg');
+}
+
+.dashboard > * {
+    transition: 1s;
+}
+
+.dashboard.active > * {
+    opacity: 0.7;
+}
+
+.dashboard.active > .disk_img {
+    opacity: 1 !important;
+}
+
+.slider {
+    width: 100%;
+    height: 8px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
+.timer span:first-child {
+    width: 45px;
+    margin-right: 12px;
+}
+
+input + span {
+    margin-left: 12px;
+}
+
+
+.slider-vol {
+    width: 100%;
+    height: 8px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    cursor: pointer;
+} 
+
+.timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.timer input {
+    width: 320px;
+}
+
+.timer i {
+    margin: 0 20px 0 13px;
+}
+
+.timer .vol {
+    margin: 0 2px 0 26px;
+}
+
+.timer .hide {
+    display: none;
+}
+
+/* --------Header-------- */
+.header {
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+}
+
+.header .select-song {
+    height: 30px;
+}
+
+.header__wrap-select {
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    width: 72px;
+}
+
+.header__wrap-select .hide {
+    display: none;
+}
+
+.header__wrap-select select {
+    width: 100%;
+    height: 20px;
+    border: none;
+    outline: none;
+    transform: translateX(-30px);
+    user-select: none;
+    background-color: transparent;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.header .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(-22px);
+}
+
+.wrap__name {
+    display: flex;
+}
+
+.header__plus {
+    margin-left: auto;
+}
+
+.header > * {
+    color: var(--primary-color);
+}
+
+.header i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.header p{
+    font-size: 15px;
+    font-weight: 600;
+    transform: translateY(-10px);
+}
+
+/* --------Disk and name song-------- */
+.disk_img {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center  ;
+   flex-direction: column;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: 54% 70%;
+   background-size: contain;
+   margin-top: 20px;
+}
+
+.disk_img__name {
+    font-size: 28px;
+    color: #000;
+}
+
+.disk_img__name__detail {
+    font-size: 28px;
+    color: #000;
+}
+
+.disk_img__disk {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}
+
+/* --------Control music-------- */
+.control {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 36px 0 36px;
+    align-items: center;
+}
+
+.control .active {
+    color: var(--primary-color);
+}
+
+.control i {
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 8px;
+    transition: 0.5s;
+}
+
+.control i:not(.active):not(.custom):hover {
+    color: #fff;
+}
+
+.control .custom {
+    font-size: 60px;
+    color: var(--primary-color);
+}
+
+.control .hide {
+    display: none;
+}
+
+/* ----------List song---------- */
+.list {
+    width: 100%;
+    margin-top: 528px;
+    background: linear-gradient(-90deg,#b7bec4, #dfe3e6 ) center;
+}
+
+.list_item {
+    display: flex;
+    align-items: center;
+    margin: 12px;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.list_item.active {
+    background-color: rgb(255, 43, 120);
+    animation: zoom 3s infinite;
+}
+
+.list_item__details .list_item__singer {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(0.95);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+.list_item.active h2 {
+    color: #fff;
+}
+
+.list_item.active span {
+    color: #fff;
+}
+
+.list_item.active i {
+    color: #fff;
+}
+
+.list_item i {
+    font-size: 30px;
+    color: var(--text-color);
+    margin-right: 12px;
+    transition: 0.4s;
+}
+
+.list_item i:hover {
+    color: rgb(53, 50, 50);
+}
+
+.list_item__img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin: 8px;
+    margin-right: 20px;
+    background-size: cover;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.list_item__details {
+    flex: 1;
+}
+
+.list_item__details h2 {
+    font-size: 20px;
+}
+
+.list_item__details span {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.timer {
+    color: #fff;
+}

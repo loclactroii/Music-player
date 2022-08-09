@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music player</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./fontawesome-free-6.0.0-web/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">    
+    <link rel="icon" href="./assets/images/customimg/diskmusic.png">
+</head>
+<body>
+    <div class="app">
+        <!-- Dashboard -->
+        <div class="dashboard active">
+            <!-- Header dashboard -->
+            <div class="header">
+                <div class="header__wrap-select">
+                    <i class="fa-solid fa-angle-down select-song"></i>
+                    <select name="" id="type" class="hide">
+                        <option value="" disabled selected>Select</option>
+                        <option value="songsNightcore">Nightcore</option>
+                        <option value="songsYoasobi">Yoasobi</option>
+                        <option value="songsJapanOther">OtherJP</option>
+                        <option value="songsJapan">Japanmusic</option>
+                    </select>
+                </div>
+                <div class="wrap">
+                    <p>Now playing:</p>
+                    <div class="wrap__name">
+                        <h1 class="disk_img__name"></h1>
+                        <h1 class="disk_img__name__detail"></h1>
+                    </div>
+                </div>
+                <div class="header__plus">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            <!-- Disk and name song -->
+            <div class="disk_img">
+                <div class="sound-beat">
+                    <div class="disk_img__disk"></div>
+                </div>
+            </div>
+
+            <!-- Control music -->
+            <div class="control">
+                <i class="fa-solid fa-arrow-rotate-right" id="relay"></i>
+                <i class="fa-solid fa-backward" id="prev"></i>
+                <i class="fa-solid fa-circle-pause custom hide" id="pause"></i>
+                <i class="fa-solid fa-circle-play custom" id="play"></i>
+                <i class="fa-solid fa-forward" id="next"></i>
+                <i class="fa-solid fa-shuffle" id="shuffle"></i>
+            </div>
+            <div class="timer">
+                <span class="time-current">00.00</span>
+                <input type="range" min="0" max="100" value="0" id="input" class="slider">
+                <span class="time-duration"></span>
+            </div>
+            <div class="timer">
+                <i class="fa-solid fa-volume-high voice"></i>
+                <i class="fa-solid fa-volume-xmark unvoice"></i>
+                <input type="range" min="0" max="100" value="30" id="input-vol" class="slider-vol">
+                <span class="vol">30%</span>
+            </div>
+        </div>
+
+        <!-- List song -->
+        <div class="list">
+            
+        </div>
+
+        <audio id="audio" src="./assets/songs/Japanmusic/Yoasobi/Ano_yume_wo_nazotte.mp3"></audio>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
