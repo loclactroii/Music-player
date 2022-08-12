@@ -520,57 +520,56 @@ const app = {
         soundBeats.cancel()
         dashboardAnimation.cancel()
         beat.cancel()
-
         // Scroll show/hide
-        window.onscroll = function() {
-            if(document.documentElement.scrollTop < 260) {
-                dashboard.classList.remove('active')
-                dashboard.style.borderBottomRightRadius = 0
-                dashboard.style.borderBottomLeftRadius = 0
-                dashboard.style.backgroundImage = ''
-                dashboardAnimation.cancel()
-
-                imgDisk.style.backgroundImage = `url(${_this.selectList()[_this.currentIndex].image})`
-                backgroundImg.style.backgroundImage = 'url("./assets/images/customimg/soundwave.png")'
-
-                colorTimer.forEach(item => {
-                    item.style.color = 'black'
-                    item.style.textShadow = ''
-                })
-
-                if(_this.isPlaying) {
-                    beat.play()
-                    rotate.play()
-                }else {
-                    beat.pause()
-                    rotate.pause() 
-                }
-
-            }else {
-                rotate.pause()
-                beat.pause()
-                imgDisk.style.backgroundImage = ''
-                backgroundImg.style.backgroundImage = ''
-                
-                dashboard.classList.add('active')
-                dashboard.style.borderRadius = 20 + 'px'
-                dashboard.style.backgroundImage = `url(${_this.selectList()[_this.currentIndex].image})`
-
-                colorTimer.forEach(item => {
-                    item.style.color = 'white'
-                    item.style.textShadow = '0 0 8px black';
-
-                })
-
-                if(_this.isPlaying) {
-                    dashboardAnimation.play()
-                }else {
+        if(window.innerWidth > 800) {
+            window.onscroll = function() {
+                if(document.documentElement.scrollTop < 260) {
+                    dashboard.classList.remove('active')
+                    dashboard.style.borderBottomRightRadius = 0
+                    dashboard.style.borderBottomLeftRadius = 0
+                    dashboard.style.backgroundImage = ''
                     dashboardAnimation.cancel()
-                }                
+    
+                    imgDisk.style.backgroundImage = `url(${_this.selectList()[_this.currentIndex].image})`
+                    backgroundImg.style.backgroundImage = 'url("./assets/images/customimg/soundwave.png")'
+    
+                    colorTimer.forEach(item => {
+                        item.style.color = 'black'
+                        item.style.textShadow = ''
+                    })
+    
+                    if(_this.isPlaying) {
+                        beat.play()
+                        rotate.play()
+                    }else {
+                        beat.pause()
+                        rotate.pause() 
+                    }
+    
+                }else {
+                    rotate.pause()
+                    beat.pause()
+                    imgDisk.style.backgroundImage = ''
+                    backgroundImg.style.backgroundImage = ''
+                    
+                    dashboard.classList.add('active')
+                    dashboard.style.borderRadius = 20 + 'px'
+                    dashboard.style.backgroundImage = `url(${_this.selectList()[_this.currentIndex].image})`
+    
+                    colorTimer.forEach(item => {
+                        item.style.color = 'white'
+                        item.style.textShadow = '0 0 8px black';
+    
+                    })
+    
+                    if(_this.isPlaying) {
+                        dashboardAnimation.play()
+                    }else {
+                        dashboardAnimation.cancel()
+                    }                
+                }
             }
-        }
-
-        
+        }        
 
         // Real play
         audio.onplay = function() {
@@ -772,7 +771,6 @@ const app = {
         $('.option').onclick = function() {
             console.log(1)
         }
-
     },
 
     // Update UI
@@ -789,6 +787,7 @@ const app = {
         iconVoice.classList.toggle('hide', !(!!audio.volume))
         iconUnVoice.classList.toggle('hide', (!!audio.volume))
     },
+
 
     // Show when hover func
     showWhenHover: function() {
@@ -816,7 +815,9 @@ const app = {
         this.render()
 
         // Call scroll func
-        this.scroll()
+        if(window.innerWidth > 800) {
+            this.scroll()
+        }
 
         // Call load current song
         this.loadCurrentSong()

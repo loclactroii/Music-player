@@ -368,3 +368,21 @@ input + span {
 .timer {
     color: #fff;
 }
+
+@media only screen and (max-width: 800px) {
+    :root {
+        --app-width: 100vw;
+    }
+
+    .dashboard {
+        border-radius: 0 !important;
+    }
+
+    .disk_img {
+        display: none;
+    }
+
+    .list {
+        margin-top: 292px;
+    }
+}
